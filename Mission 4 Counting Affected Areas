@@ -1,0 +1,23 @@
+You believe that knowing how often each of the areas of the Atlantic are affected by these strong hurricanes is important for making preparations for future hurricanes.
+
+Write a function that counts how often each area is listed as an affected area of a hurricane. Store and return the results in a dictionary where the keys are the affected areas and the values are counts of how many times the areas were affected.
+
+Test your function on your hurricane dictionary.
+
+
+___________
+
+# 4
+# Counting Damaged Areas
+def count_affected_areas(hurricanes): #Funktion erstellen count_affected_areas mit Liste aus Hurricane als variable
+    affected_areas_count = dict() #leeres Dic anlegen namens affected_areas_count
+    for i in hurricanes: #Loop über die Einträge in hurricanes (gesamte Dic)
+            for y in hurricanes[i]['Area Affected']: #Loop über die einzelnen Einträge auf Areas Affected
+                if y not in affected_areas_count:
+                    affected_areas_count[y] = 1
+                else:
+                    affected_areas_count[y] +=1
+    return(affected_areas_count)
+            
+affected_areas_count = count_affected_areas(hurricanes)
+print(affected_areas_count)
