@@ -1,0 +1,24 @@
+Write a function that finds the area affected by the most hurricanes, and how often it was hit.
+
+Test your function on your affected area dictionary.
+
+________
+
+# 5
+#print(affected_areas_count)
+#print(len(affected_areas_count))
+
+#def find_hurricane_count(affected_areas_count):
+def most_affected():
+    maxi_wert = max(affected_areas_count.values())   
+    searched_key = [schluessel for schluessel, wert in affected_areas_count.items() if wert == maxi_wert]
+    return searched_key
+
+# Rufe die Funktion auf und drucke das Ergebnis
+result = most_affected()
+print(result)
+
+
+# Calculating Maximum Hurricane Count
+
+# find most frequently affected area and the number of hurricanes involved in
