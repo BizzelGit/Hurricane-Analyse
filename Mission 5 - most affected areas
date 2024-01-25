@@ -5,9 +5,6 @@ Test your function on your affected area dictionary.
 ________
 
 # 5
-#print(affected_areas_count)
-#print(len(affected_areas_count))
-
 #def find_hurricane_count(affected_areas_count):
 def most_affected():
     maxi_wert = max(affected_areas_count.values())   
@@ -16,7 +13,8 @@ def most_affected():
 
 # Rufe die Funktion auf und drucke das Ergebnis
 result = most_affected()
-print(result)
+max_wert = max(affected_areas_count.values()) 
+print(str(result) + 'is '+ str(max_wert))
 
 
 OR AS A SOLUTION
