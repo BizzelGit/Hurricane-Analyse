@@ -19,6 +19,20 @@ result = most_affected()
 print(result)
 
 
+OR AS A SOLUTION
+
+# 5
 # Calculating Maximum Hurricane Count
+def most_affected_area(affected_areas_count):
+    """Find most affected area and the number of hurricanes it was involved in."""
+    max_area = 'Central America'
+    max_area_count = 0
+    for area in affected_areas_count:
+        if affected_areas_count[area] > max_area_count:
+            max_area = area
+            max_area_count = affected_areas_count[area]
+    return max_area, max_area_count
 
 # find most frequently affected area and the number of hurricanes involved in
+max_area, max_area_count = most_affected_area(affected_areas_count)
+print(max_area, max_area_count)
