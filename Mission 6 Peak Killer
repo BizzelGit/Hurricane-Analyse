@@ -1,0 +1,21 @@
+def create_dictionary(names, deaths):
+    #max_death = max(deaths)
+    hurricanes = dict()
+    num_hurricanes = len(names)
+    for i in range(num_hurricanes):
+            hurricanes[i]= {'Name':names[i],
+                                #'Month':months[i],
+                                #'Year':years[i],
+                                #'Max Sustained Wind':max_sustained_winds[i],
+                                #'Area Affected':areas_affected[i],
+                                #'Damage':updated_damages[i],
+                                'Death':deaths[i]}
+    return(hurricanes)                   
+        
+
+# Create and view the hurricanes dictionary
+#hurricanes = create_dictionary(names, deaths)
+print(hurricanes)
+
+
+# find highest mortality hurricane and the number of deaths
