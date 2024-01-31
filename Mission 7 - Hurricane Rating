@@ -1,0 +1,87 @@
+Just as hurricanes are rated by their windspeed, you want to try rating hurricanes based on other metrics.
+
+Write a function that rates hurricanes on a mortality scale according to the following ratings, where the key is the rating and the value is the upper bound of deaths for that rating.
+
+mortality_scale = {0: 0,
+1: 100,
+2: 500,
+3: 1000,
+4: 10000}
+For example, a hurricane with a 1 mortality rating would have resulted in greater than 0 but less than or equal to 100 deaths. A hurricane with a 5 mortality would have resulted in greater than 10000 deaths.
+
+Store the hurricanes in a new dictionary where the keys are the mortaility ratings and the values are lists containing a dictionary for each hurricane that falls into that mortality rating.
+
+Test your function on your hurricane dictionary.
+
+
+___________________
+
+# 7
+# Rating Hurricanes by Mortality
+
+death_list = [(value['Name'], value['Death']) for value in hurricanes.values()]
+
+#mydeath_dict = {sublist[0]: sublist[1] for sublist in death_list}
+
+mortality_scale = {0: 0, 1: 100, 2: 500, 3: 1000, 4: 10000}
+
+mortality_key = ['0', '1', '2', '3', '4']
+
+death_entries = [sublist[1] for sublist in death_list]
+
+num_lists = len(death_entries)
+
+mortality_dict = {key: [] for key in mortality_key}
+
+for y in range(num_lists): #33 Runden
+    x = death_entries[y] #x = der Death Eintrag in der Runde von y
+    if 0 <= x < 100: #prüft ob x in der jeweiligen Category Range liegt
+        category = '0'
+    elif 100 <= x < 500:
+        category = '1'
+    elif 500 <= x < 1000:
+        category = '2'
+    elif 1000 <= x < 10000:
+        category = '3'
+    elif 10000 <= x:
+        category = '4'
+    mortality_dict[category].append(death_entries[y])
+
+print(y)
+print(death_entries[y])
+print(category)
+print(x)
+print(death_list[y])
+print(mortality_dict)
+
+_____SOLUTION VERSION
+
+# 7
+# Rating Hurricanes by Mortality
+def categorize_by_mortality(hurricanes):
+    """Categorize hurricanes by mortality and return a dictionary."""
+    mortality_scale = {0: 0,
+                      1: 100,
+                      2: 500,
+                      3: 1000,
+                      4: 10000}
+    hurricanes_by_mortality = {0:[], 1:[], 2:[], 3:[], 4:[], 5:[]}
+    for cane in hurricanes:
+        num_deaths = hurricanes[cane]['Deaths']
+        if num_deaths == mortality_scale[0]:
+            hurricanes_by_mortality[0].append(hurricanes[cane])
+        elif num_deaths > mortality_scale[0] and num_deaths <= mortality_scale[1]:
+            hurricanes_by_mortality[1].append(hurricanes[cane])
+        elif num_deaths > mortality_scale[1] and num_deaths <= mortality_scale[2]:
+            hurricanes_by_mortality[2].append(hurricanes[cane])
+        elif num_deaths > mortality_scale[2] and num_deaths <= mortality_scale[3]:
+            hurricanes_by_mortality[3].append(hurricanes[cane])
+        elif num_deaths > mortality_scale[3] and num_deaths <= mortality_scale[4]:
+            hurricanes_by_mortality[4].append(hurricanes[cane])
+        elif num_deaths > mortality_scale[4]:
+            hurricanes_by_mortality[5].append(hurricanes[cane])
+    return hurricanes_by_mortality
+
+# categorize hurricanes in new dictionary with mortality severity as key
+hurricanes_by_mortality = categorize_by_mortality(hurricanes)
+print(hurricanes_by_mortality)
