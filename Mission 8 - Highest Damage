@@ -1,0 +1,19 @@
+# 8 Find out the highest Damage
+
+____
+# Calculating Hurricane Maximum Damage
+def highest_damage(hurricanes):
+    """Find the highest damage inducing hurricane and its total cost."""
+    max_damage_cane = 'Cuba I'
+    max_damage = 0
+    for cane in hurricanes:
+        if hurricanes[cane]['Damage'] == "Damages not recorded":
+            pass
+        elif hurricanes[cane]['Damage'] > max_damage:
+            max_damage_cane = cane
+            max_damage = hurricanes[cane]['Damage']
+    return max_damage_cane, max_damage
+
+# find highest damage inducing hurricane and its total cost
+max_damage_cane, max_damage = highest_damage(hurricanes)
+print(max_damage_cane, max_damage)
